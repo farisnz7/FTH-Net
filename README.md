@@ -39,12 +39,19 @@ Schema utama: `homePage`
 
 
 ## Troubleshooting
-Jika saat `npm install` muncul error `ETARGET No matching version found for next-sanity@...`, jalankan:
+Jika saat `npm install` muncul error dependency tree seperti:
+- `next-sanity@12.x` butuh `next@^16`
+- sedangkan project ini memakai `next@14`
+
+Gunakan versi `next-sanity` yang kompatibel dengan Next 14:
 ```bash
-npm install next-sanity@latest @sanity/image-url@latest
-```
-Lalu install ulang dependency:
-```bash
+npm install next-sanity@9.0.2 @sanity/image-url@1.1.0
 npm install
 ```
 
+Jika sebelumnya sempat install yang salah, bersihkan dulu:
+```bash
+rm -rf node_modules package-lock.json
+npm cache verify
+npm install
+```
