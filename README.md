@@ -55,3 +55,12 @@ rm -rf node_modules package-lock.json
 npm cache verify
 npm install
 ```
+
+
+Jika error backoffice:
+`Failed to resolve import "@sanity/vision" from "sanity.config.ts"`
+install plugin vision dulu:
+```bash
+npm install @sanity/vision@3.66.1
+npm run studio
+```

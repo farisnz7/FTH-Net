@@ -16,7 +16,8 @@
     "react-dom": "18.3.1",
     "sanity": "3.66.1",
     "styled-components": "6.1.12",
-    "@sanity/image-url": "1.1.0"
+    "@sanity/image-url": "1.1.0",
+    "@sanity/vision": "3.66.1"
   },
   "devDependencies": {
     "@types/node": "20.16.1",
