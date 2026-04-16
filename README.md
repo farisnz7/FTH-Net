@@ -36,3 +36,15 @@ Schema utama: `homePage`
 - Footer
 
 > Catatan: Hero image/logo saat ini memakai sample image sampai aset final diberikan.
+
+
+## Troubleshooting
+Jika saat `npm install` muncul error `ETARGET No matching version found for next-sanity@...`, jalankan:
+```bash
+npm install next-sanity@latest @sanity/image-url@latest
+```
+Lalu install ulang dependency:
+```bash
+npm install
+```
+

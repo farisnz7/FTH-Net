@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "next": "14.2.5",
-    "next-sanity": "9.3.11",
+    "next-sanity": "latest",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "sanity": "3.66.1",
     "styled-components": "6.1.12",
-    "@sanity/image-url": "1.1.0"
+    "@sanity/image-url": "latest"
   },
   "devDependencies": {
     "@types/node": "20.16.1",
