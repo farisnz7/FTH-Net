@@ -26,14 +26,19 @@ Website profil modern untuk UMKM ISP **FTH Net** menggunakan **Next.js** pada fr
    npm run studio
    ```
 
-## Struktur Sanity
-Schema utama: `homePage`
-- Hero
-- About
-- Packages
-- Testimonials
-- Contact
-- Footer
+## Struktur Sanity (Page Builder)
+- `Pages`: setiap halaman website dikelola sebagai dokumen terpisah (per page).
+- `Site Settings`: pengaturan global seperti title, navbar, CTA header, dan footer.
+- Tiap `Page` memiliki `blocks[]` yang bisa disusun ulang:
+  - Hero Block
+  - Feature Block
+  - Pricing Block
+  - Testimonial Block
+  - Contact Block
+  - Content Block
+  - CTA Banner Block
+
+Set salah satu page sebagai **Home** (`isHome = true`) agar tampil di route `/`.
 
 > Catatan: Hero image/logo saat ini memakai sample image sampai aset final diberikan.
 

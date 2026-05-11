@@ -2,14 +2,23 @@ import { Navbar } from "@/components/Navbar";
 import { PageBuilder } from "@/components/PageBuilder";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MaintenanceBanner } from "@/components/MaintenanceBanner";
-import { getHomePageData, getSiteSettings } from "@/lib/page-data";
+import { getAllPageSlugs, getPageDataBySlug, getSiteSettings } from "@/lib/page-data";
 
-export default async function Home() {
-  const [settings, homePage] = await Promise.all([
-    getSiteSettings(),
-    getHomePageData()
-  ]);
-  if (!settings || !homePage) {
+type PageProps = {
+  params: { slug: string };
+};
+
+export async function generateStaticParams() {
+  const slugs = await getAllPageSlugs();
+  return slugs
+    .filter((item) => item.slug !== "home")
+    .map((item) => ({ slug: item.slug }));
+}
+
+export default async function DynamicPage({ params }: PageProps) {
+  const { slug } = params;
+  const [settings, page] = await Promise.all([getSiteSettings(), getPageDataBySlug(slug)]);
+  if (!settings || !page || page.isHome) {
     return <MaintenanceBanner />;
   }
   return (
@@ -21,7 +30,7 @@ export default async function Home() {
         logoWidth={settings.logoWidth}
         logoHeight={settings.logoHeight}
       />
-      <PageBuilder blocks={homePage.blocks} />
+      <PageBuilder blocks={page.blocks} />
       <SiteFooter
         siteTitle={settings.siteTitle}
         navigation={settings.navigation}

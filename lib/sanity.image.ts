@@ -3,4 +3,6 @@ import { dataset, projectId } from "./sanity.client";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
-export const urlFor = (source: unknown) => builder.image(source);
+type ImageSource = Parameters<typeof builder.image>[0];
+
+export const urlFor = (source: ImageSource) => builder.image(source);
